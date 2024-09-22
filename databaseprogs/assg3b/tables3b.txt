@@ -1,0 +1,46 @@
+create table project(
+pno int(3),
+pname varchar(30),
+ptype varchar(30),
+duration int(3),
+primary key (pno));
+
+
+create table emp3b(
+eno int,
+ename varchar(10),
+qual varchar(10),
+doj date,
+primary key (eno));
+
+
+create table proemp(
+eno int(3),
+pno int(3),
+startdate date,
+noh int(3),
+primary key(eno,pno),
+foreign key (eno) references emp3b(eno),
+foreign key (pno) references project(pno));
+
+
+insert into project values
+(100,"Imaan","yakeen",120),
+(200,"Namaz","amaal",120),
+(300,"Ilm zikr","amaal",120),
+(400,"Ikram","bartav",120),
+(500,"Ikhlas","sincerity",120),
+(600,"DnT","effort",120);
+
+insert into emp3b values
+(101,"Alice","Btech","2024-1-30"),
+(102,"Ben","Btech","2024-2-28"),
+(103,"Chris","Mtech","2024-3-30"),
+(104,"Dom","BCA","2024-4-30"),
+(105,"Elcid","BCS","2024-5-30");
+
+insert into proemp values
+(101,100,"2024-1-30",400),
+(101,200,"2024-5-30",200),
+(102,100,"2024-1-30",300);
+

@@ -1,0 +1,53 @@
+create table dept(
+dno int,
+dname varchar(10),
+location varchar(10),
+primary key (dno));
+
+create table emp(
+eno int,
+ename varchar(10),
+cityofbirth varchar(10),
+phone varchar(10),
+dno int,
+primary key (eno),
+foreign key (dno) references dept(dno));
+
+create table salary(
+eno int(3),
+month varchar(10),
+year int(4),
+basic int(4),
+hra int(4),
+ta int(4),
+da int(4),
+primary key(eno,month,year),
+foreign key (eno) references emp(eno));
+
+
+insert into emp values
+(101,"Alice","Pune","9890111222",1),
+(102,"Ben","Pune","9890111333",1),
+(103,"Chris","Jaipur","9890111444",1),
+(104,"Dom","Jaipur","9890111555",2),
+(105,"Elcid","Delhi","9890111666",2);
+
+
+INSERT INTO `saamudb`.`salary` (
+`eno` ,
+`month` ,
+`year` ,
+`basic` ,
+`hra` ,
+`ta` ,
+`da`
+)
+VALUES 
+('101', 'March', '2024', '6000', '5000', '1500', '2000'),
+('101', 'April', '2024', '6000', '5000', '1500', '2000'),
+('101', 'May', '2024', '6000', '5000', '1500', '2000'),
+('102', 'February', '2024', '6000', '5000', '1500', '2000'),
+('102', 'March', '2024', '6000', '5000', '1500', '2000'),
+('102', 'April', '2024', '6000', '5000', '1500', '2000'),
+('103', 'January', '2024', '6000', '5000', '1500', '2000');
+
